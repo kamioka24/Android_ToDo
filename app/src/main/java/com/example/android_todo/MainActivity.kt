@@ -16,5 +16,9 @@ class MainActivity : AppCompatActivity() {
                 setSupportActionBar(it) // ツールバーをセット
             }
         }
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.contentFrame, MainFragment.newInstance())
+        }.commit()
     }
 }
