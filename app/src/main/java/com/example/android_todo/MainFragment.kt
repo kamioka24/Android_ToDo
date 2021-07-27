@@ -35,6 +35,14 @@ class MainFragment : Fragment() {
         val task3 = Task(2, 1, "Task3")
         val task4 = Task(3, 2, "Task4")
         val task5 = Task(4, 2, "Task5")
+
+        tasks.add(task1)
+        tasks.add(task2)
+        tasks.add(task3)
+        tasks.add(task4)
+        tasks.add(task5)
+
+        listView.adapter = TasksAdapter(tasks)
     }
 
     private class TasksAdapter(private val tasks: List<Task>): BaseAdapter() {
