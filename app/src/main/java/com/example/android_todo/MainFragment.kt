@@ -17,10 +17,6 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
@@ -31,6 +27,14 @@ class MainFragment : Fragment() {
         addTaskButton.setOnClickListener {
             Toast.makeText(activity, "Add Tapped", Toast.LENGTH_SHORT).show()
         }
+
+        // TODO ダミーデータ
+        val tasks = arrayListOf<Task>()
+        val task1 = Task(0, 0, "Task1")
+        val task2 = Task(1, 0, "Task2")
+        val task3 = Task(2, 1, "Task3")
+        val task4 = Task(3, 2, "Task4")
+        val task5 = Task(4, 2, "Task5")
     }
 
     private class TasksAdapter(private val tasks: List<Task>): BaseAdapter() {
