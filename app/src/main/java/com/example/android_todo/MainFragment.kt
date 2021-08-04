@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
         listView.adapter = TasksAdapter(tasks)
     }
 
-    private class TasksAdapter(private val tasks: List<Task>): BaseAdapter() {
+    private class TasksAdapter(private val tasks: List<Task>, private val listener: TaskItemListener): BaseAdapter() {
         private val stateTexts = listOf(R.string.todo, R.string.doing, R.string.done )
         private val stateColors = listOf(R.color.todo, R.color.doing, R.color.done)
 
@@ -60,11 +60,24 @@ class MainFragment : Fragment() {
             rowView.findViewById<TextView>(R.id.taskState).apply {
                 text = context.getString(stateTexts[task.state])
                 setTextColor(ContextCompat.getColor(context, stateColors[task.state]))
+
+                setOnClickListener {
+                    listener.onStateClick(task)
+                }
             }
             rowView.findViewById<TextView>(R.id.taskDescription).apply {
                 text = task.description
             }
             return rowView
         }
+    }
+
+    interface TaskItemListener {
+
+        fun onStateClick(task: Task)
+
+        fun onDescriptionClick(task: Task)
+
+        fun onDeleteClick(task: Task)
     }
 }
