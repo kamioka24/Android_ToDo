@@ -1,7 +1,7 @@
 package com.example.android_todo
 
+import android.app.Fragment
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +42,7 @@ class MainFragment : Fragment() {
         tasks.add(task4)
         tasks.add(task5)
 
-        listView.adapter = TasksAdapter(tasks)
+        //listView.adapter = TasksAdapter(tasks)
     }
 
     private class TasksAdapter(private val tasks: List<Task>, private val listener: TaskItemListener): BaseAdapter() {
